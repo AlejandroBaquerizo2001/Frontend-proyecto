@@ -1,0 +1,61 @@
+<div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+    <p style="font-size: .75rem;">Gestion ATPS- Grupo 6 Calderon Cabrera</p>
+</div>
+<mat-icon class="material-symbols-outlined" fontIcon="home" matTooltip="Ver" routerLink="/home"></mat-icon>
+<mat-icon class="material-symbols-outlined" fontIcon="person" matTooltip="Ver" routerLink="/admin"></mat-icon>
+<br>
+<br>
+<div class="container textcenter">
+    <div class="form-group">
+        <label for="nombre " class="form-label ">Nombre</label>
+        <br>
+        <input type="text " [(ngModel)]="nombre " class="form-control-lg " placeholder="nombre">
+        <br>
+        <label for="tipoproducto " class="form-label ">Tipo de producto</label>
+        <br>
+        <input type="text " [(ngModel)]="tipoProducto " class="form-control-lg " placeholder="tipo de producto">
+        <br>
+        <label for="cantidadingresada " class="form-label ">Cantidad Ingresante</label>
+        <br>
+        <input type="number " [(ngModel)]="cantidad " class="form-control-lg " placeholder="cantidad">
+        <br>
+        <label for="FechaIngreso " class="form-label ">Fecha de Ingreso</label>
+        <br>
+        <input type="date " [(ngModel)]="fechaIngreso " class="form-control-lg ">
+        <br>
+        <button class="btn btn-outline-warning " (click)="ObtenerProductos()">Consultar Producto</button>
+        <button class="btn btn-outline-success m-2" (click)=" agregarProducto() ">Agregar Producto</button>
+    </div>
+</div>
+
+
+
+<div class="container mt-4 ">
+    <table class="table table-success table-striped " id="dataTable ">
+        <thead>
+            <tr>
+                <th scope="col ">Codigo</th>
+                <th scope="col ">Nombre del Producto</th>
+                <th scope="col ">Tipo del producto</th>
+                <th scope="col ">Cantidad Ingresada</th>
+                <th scope="col ">Fecha de Ingreso</th>
+                <td scope="col">Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for(elem of listProductos; track elem){
+            <tr>
+                <td>{{elem.id}}</td>
+                <td>{{elem.nombre}}</td>
+                <td>{{elem.tipoProducto}}</td>
+                <td>{{elem.cantidad}}</td>
+                <td>{{elem.fechaIngreso}}</td>
+                <td>
+                    <mat-icon class="material-symbols-outlined" (click)="actualizarProducto()">editar</mat-icon>
+                    <mat-icon class="material-symbols-outlined" (click)="eliminarProducto(elem.id)">delete</mat-icon>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,117 @@
+<div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+    <p style="font-size: .75rem;">Gestion ATPS- Grupo 6 Campuzano Adolfo</p>
+</div>
+<mat-icon class="material-symbols-outlined" fontIcon="home" matTooltip="Ver" routerLink="/home"></mat-icon>
+<mat-icon class="material-symbols-outlined" fontIcon="person" matTooltip="Ver" routerLink="/admin"></mat-icon>
+<br>
+<br>
+<div class="container textcenter">
+    <div class="form-control-lg">
+        <label for="codigo" class="form-label">Codigo</label>
+        <br>
+        <input type="number" [(ngModel)]="id" class="form-control-lg" placeholder="id">
+        <br>
+        <label for="nombre" class="form-label">Nombre</label>
+        <br>
+        <input type="text" [(ngModel)]="producto" class="form-control-lg" placeholder="nombre del producto">
+        <br>
+        <label for="tipoproducto" class="form-label">Tipo de producto</label>
+        <br>
+        <input type="text" [(ngModel)]="tipoProducto" class="form-control-lg" placeholder="tipo de producto">
+        <br>
+        <label for="cantidad" class="form-label">Cantidad Saliente</label>
+        <br>
+        <input type="number" [(ngModel)]="cantidad" class="form-control-lg" placeholder="cantidad saliente">
+        <br>
+        <label for="fechaSalida" class="form-label">Fecha de Salida</label>
+        <br>
+        <input type="date" [(ngModel)]="fechaSalida" class="form-control-lg">
+        <br>
+        <label for="descripcion" class="form-label">Motivo de salida</label>
+        <br>
+        <input type="text" [(ngModel)]="descripcion" class="form-control-lg" placeholder="motivo de salida">
+        <button class="btn btn-outline-success m-2" (click)="agregarRegistro()">Agregar Registro</button>
+        <button class="btn btn-outline-danger" onclick="window.modal.showModal();">Eliminar Registro</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="window.modal1.showModal();">Actualizar Registro</button>
+        <button class="btn btn-outline-warning" onclick="window.modal2.showModal();">Consultar Registro</button>
+    </div>
+</div>
+
+<dialog id="modal">
+    <h2>Desea Eliminar algun Registro</h2>
+    <label for="codigo" class="form-label">Codigo</label>
+    <br>
+    <input type="number" [(ngModel)]="id" class=" form-control-lg " placeholder="id">
+    <button class="btn btn-outline-danger" (click)="eliminarRegistro()">Eliminar Registro</button>
+    <button class="btn btn-outline-success m-2" onclick="window.modal.close();">Cerrar</button>
+</dialog>
+
+<dialog id="modal1">
+    <h2>Desea Actualizar algun Registro</h2>
+    <label for="codigo" class="form-label">Codigo</label>
+    <br>
+    <input type="number" [(ngModel)]="id" class="form-control-lg" placeholder="id">
+    <br>
+    <label for="nombre" class="form-label">Nombre</label>
+    <br>
+    <input type="text" [(ngModel)]="producto" class="form-control-lg" placeholder="nombre">
+    <br>
+    <label for="tipoproducto" class="form-label">Tipo de producto</label>
+    <br>
+    <input type="text" [(ngModel)]="tipoProducto" class="form-control-lg" placeholder="tipo de producto">
+    <br>
+    <label for="cantidad" class="form-label">Cantidad Saliente</label>
+    <br>
+    <input type="number" [(ngModel)]="cantidad" class="form-control-lg" placeholder="cantidad saliente">
+    <br>
+    <label for="fechaSalida" class="form-label">Fecha de Salida</label>
+    <br>
+    <input type="date" [(ngModel)]="fechaSalida" class="form-control-lg">
+    <br>
+    <label for="descripcion" class="form-label">Motivo de salida</label>
+    <br>
+    <input type="text" [(ngModel)]="descripcion" class="form-control-lg" placeholder="motivo de salida">
+    <br>
+    <button class="btn btn-outline-warning" (click)="actualizarRegistro()">Actualizar Registro</button>
+    <button class="btn btn-outline-success m-2" onclick="window.modal1.close();">Cerrar</button>
+</dialog>
+
+<dialog id="modal2">
+    <h2>Desea Consultar algun Registro</h2>
+    <label for="codigo" class="form-label">Codigo</label>
+    <br>
+    <input type="number" [(ngModel)]="id" class="form-control-lg" placeholder="id">
+    <br>
+    <label for="nombre " class="form-label ">Nombre</label>
+    <br>
+    <input type="text " [(ngModel)]="producto" class="form-control-lg" placeholder="nombre">
+    <button class="btn btn-outline-danger" (click)="consultarRegistro()">Consultar Registro</button>
+    <button class="btn btn-outline-success m-2" onclick="window.modal2.close();">Cerrar</button>
+</dialog>
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nombre del Producto</th>
+                <th scope="col">Tipo del producto</th>
+                <th scope="col">Cantidad Saliente</th>
+                <th scope="col">Fecha de Salida </th>
+                <th scope="col">Motivo de Salida </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(elem of listSalida; track elem){
+            <tr>
+                <td>{{elem.id}}</td>
+                <td>{{elem.producto}}</td>
+                <td>{{elem.tipoProducto}}</td>
+                <td>{{elem.cantidad}}</td>
+                <td>{{elem.fechaSalida | date : 'dd/MM/YYYY'}}</td>
+                <td>{{elem.descripcion}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

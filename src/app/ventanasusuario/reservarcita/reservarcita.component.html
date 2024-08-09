@@ -1,0 +1,58 @@
+<div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+    <p style="font-size: .75rem;">Gestion ATPS- Grupo 6 Medina Nicolle</p>
+</div>
+<mat-icon class="material-symbols-outlined" fontIcon="home" matTooltip="Ver" routerLink="/home"></mat-icon>
+<mat-icon class="material-symbols-outlined" fontIcon="person" matTooltip="Ver" routerLink="/perfil"></mat-icon>
+<br>
+<br>
+<div class="container textcenter">
+    <div class="form-control-lg">
+        <label for="nombre" class="form-label">Nombres del Usuario</label>
+        <br>
+        <input type="text" [(ngModel)]="usuario" class="form-control-lg" placeholder="nombre del usuario">
+        <br>
+        <label for="FechaCita" class=" form-label ">Fecha de Cita </label>
+        <br>
+        <input type="date" [(ngModel)]="fechaCita" class="form-control-lg ">
+        <br>
+        <label for="doctor " class="form-label ">Doctor</label>
+        <br>
+        <input type="text " [(ngModel)]="doctor" class="form-control-lg" placeholder="doctor">
+        <br>
+        <label for="especialidad " class="form-label ">Especialidad</label>
+        <br>
+        <input type="text " [(ngModel)]="especialidad" class="form-control-lg" placeholder="especialidad">
+        <button class="btn btn-outline-success m-2" (click)="AgregarCita()">Agregar Reserva</button>
+        <button class="btn btn-outline-warning" (click)="cargarCitas()">Consultar</button>
+    </div>
+</div>
+
+<div class="container ">
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th scope="col ">Codigo</th>
+                <th scope="col ">Nombre del Usuario</th>
+                <th scope="col ">nombre del Doctor</th>
+                <th scope="col ">Especialidad</th>
+                <th scope="col ">Fecha de Cita</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let elem of citas">
+                <td>{{elem.id}}</td>
+                <td>{{elem.usuario}}</td>
+                <td>{{elem.doctor}}</td>
+                <td>{{elem.especialidad}}</td>
+                <td>{{elem.fechaCita}}</td>
+                <td>
+                    <mat-icon class="material-symbols-outlined" (click)="actualizarCita(elem.id)">editar</mat-icon>
+                    <mat-icon class="material-symbols-outlined" (click)="eliminarCita(elem.id)">delete</mat-icon>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

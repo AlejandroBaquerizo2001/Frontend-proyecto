@@ -1,0 +1,59 @@
+<div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+    <p style="font-size: .75rem;">Gestion ATPS- Grupo 6 Cedeño Alejandro</p>
+</div>
+<mat-icon class="material-symbols-outlined" fontIcon="home" matTooltip="Ver" routerLink="/home"></mat-icon>
+<mat-icon class="material-symbols-outlined" fontIcon="person" matTooltip="Ver" routerLink="/perfil"></mat-icon>
+<br>
+<br>
+<br>
+<label for="producto" class="form-label ">Nombre del Producto a Consultar</label>
+<br>
+<input type="text " [(ngModel)]="producto" class="form-control-lg" placeholder="nombre">
+<br>
+<label for="producto" class="form-label ">Valor del producto</label>
+<br>
+<input type="text " [(ngModel)]="valor" class="form-control-lg" placeholder="valor">
+<br>
+<label for="usuario" class="form-label ">Usuario</label>
+<br>
+<input type="text " [(ngModel)]="usuario" class="form-control-lg" placeholder="nombre del usuario">
+<br>
+<label for="fechaAdquirido" class="form-label ">Fecha Adquirido</label>
+<br>
+<input type="date" [(ngModel)]="fechaAdquirido" class="form-control-lg">
+<button class="btn btn-outline-success" (click)="AgregarAdquirido()">Agregar</button>
+<button class="btn btn-outline-info" (click)="ObtenerAdquiridos()">Consultar</button>
+<br>
+<br>
+<br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th scope="col">Id</th>
+                <th scope="col">Producto Adquirido</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Fecha Adquirido</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (elem of listAdquirido; track elem) {
+            <tr>
+
+                <td>{{elem.id}}</td>
+                <td>{{elem.producto}}</td>
+                <td>{{elem.valor}}</td>
+                <td>{{elem.usuario}}</td>
+                <td>{{elem.fechaAdquirido}}</td>
+                <td>
+                    <mat-icon class="material-symbols-outlined" (click)="ModificarAdquirido(elem.id)">editar</mat-icon>
+                    <mat-icon class="material-symbols-outlined" (click)="eliminarAdquirido(elem.id)">delete</mat-icon>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

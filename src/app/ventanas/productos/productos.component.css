@@ -1,0 +1,35 @@
+h3 {
+    margin: 50px auto;
+    width: 600px;
+}
+
+.home-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.card12 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-card {
+    max-width: 300px;
+    margin-bottom: 10px;
+}
+
+.example-header-image {
+    background-size: cover;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}

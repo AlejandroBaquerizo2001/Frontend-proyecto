@@ -1,0 +1,56 @@
+<body>
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+            <p style="font-size: .75rem;">Gestion ATPS- Grupo 6 Campuzano Adolfo</p>
+        </div>
+        <div class="login-box">
+            <div class="fondo" style="--i:0;"></div>
+            <div class="fondo" style="--i:1;"></div>
+            <div class="fondo" style="--i:2;"></div>
+            <div class="fondo" style="--i:3;"></div>
+            <div class="fondo" style="--i:4;"></div>
+            <div class="login-container">
+                <div class="formulario">
+                    <h2>Usuario</h2>
+                    <form action="">
+                        <div class="input">
+                            <input class="input-validate" type="usuario" name="usuario" placeholder="Usuario" pattern="[a-z0-9._%+-] +@[a-z0-9.-]+/.[a-z]{2,4}$" required>
+                        </div>
+                        <div class="error-msg">Must be a valid Usuario</div>
+                        <div class="input">
+                            <input class="input-validate" type="password" name="password" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" required>
+                        </div>
+                        <div class="error-msg">Must be at least 8 characters long and include at least one capital letter, one lowercase letter, and one digit</div>
+                        <div class="input">
+                            <input class="submit-buttom" type="submit" value="submit" routerLink="/perfil/">
+                        </div>
+                        <p class="olvidar">¿Olvidates contraseña?<a href="#">Click aqui</a></p>
+                        <p class="olvidar">¿No tienes cuenta?<a routerLink="/register">Click aqui</a></p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const form = document.querySelector("form")
+        const inputs = document.querySelectorAll("input-validate")
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault()
+            inputs.forEach((input) => {
+                if (!input.checkValidity()) {
+                    input.classList.add("shake")
+                    input.nextElementSibling.style.display = "block"
+                    setTimeout(function() {
+                        input.classList.remove("shake")
+                    }, 1000)
+                }
+            })
+            event.preventDefault()
+        })
+    </script>
+</body>

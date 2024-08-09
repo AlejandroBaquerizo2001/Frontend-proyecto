@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <section class="perfil-usuario">
+        <div class="contenedor-perfil">
+            <div class="portada-perfil" style="background-image: url('../../assets/bna.jpg');">
+                <div class="sombra"></div>
+                <div class="avatar-perfil">
+                    <img src="../../assets/izuku.jpg" alt="img">
+                    <a href="#" class="cambiar-foto">
+                        <i class="fas fa-camera"></i>
+                        <span>Cambiar foto</span>
+                    </a>
+                </div>
+                <div class="datos-perfil">
+                    <h4 class="titulo-usuario">Cedeño Vanoni Miguel Alejandro</h4>
+
+                </div>
+                <div class="opcciones-perfil">
+                    <button type="">Cambiar portada</button>
+                    <button routerLink="/home">Salir de sesion</button>
+                </div>
+            </div>
+            <div class="menu-perfil">
+                <ul>
+                    <li><a routerLink="/inventario" title=""><i class="icono-perfil fas fa-bullhorn"></i>Inventario</a></li>
+                    <li><a routerLink="/ingresoproduct" title=""><i class="icono-perfil fas fa-info-circle"></i> Ingreso de Product</a></li>
+                    <li><a routerLink="/salidaproduct" title=""><i class="icono-perfil fas fa-grin"></i> Salida de Product</a></li>
+                    <li><a routerLink="/personaldoctores" title=""><i class="icono-perfil fas fa-camera"></i> Personal Doctores</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="mis-redes" style="display: block;position: fixed;bottom: 1rem;left: 1rem; opacity: 0.5; z-index: 1000;">
+        <p style="font-size: .75rem;">Gestion ATPS- Grupo 6 Alejandro Baquerizo</p>
+
+    </div>
+
+    <div id="slider">
+        <input type="radio" name="slider" id="s1" checked />
+        <input type="radio" name="slider" id="s2" />
+        <input type="radio" name="slider" id="s3" />
+        <input type="radio" name="slider" id="s4" />
+        <input type="radio" name="slider" id="s5" />
+        <label for="s1" id="slide1">
+            <img
+                src="https://www.webconsultas.com/sites/default/files/styles/wch_image_schema/public/noticias/mascotas-preferidas-espanoles.jpg"
+                alt />
+        </label>
+        <label for="s4" id="slide2">
+            <img src="https://mx.virbac.com/files/live/sites/virbac-mx/files/mexico%20correctas/imagenes%20de%20acoma%C3%B1amiento/Cuidados_para_mi_mascota_veterinario.png" alt />
+        </label>
+        <label for="s5" id="slide1">
+            <img src="https://www.diarioveterinario.com/images/showid/2542622" alt />
+        </label>
+        <label for="s6" id="slide3">
+            <img
+                src="https://www.centroeleia.edu.mx/blog/wp-content/uploads/2021/03/mascotas_slider.jpg"
+                alt />
+        </label>
+        <label for="s7" id="slide4">
+            <img src="https://www.acws.cl/wp-content/uploads/2021/01/blog_1401.jpg" alt />
+        </label>
+        <label for="s8" id="slide5">
+            <img src="https://msptucuman.gov.ar/wordpress/wp-content/uploads/cuidado-de-mascotas.jpg" alt />
+        </label>
+    </div>
+</body>
+
+</html>
